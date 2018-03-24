@@ -17,7 +17,7 @@ namespace resource_permissions.Infrastructure.Authorization
                 var intention = ctx.HttpContext.Request.Method.AsIntention();
                 var resource = ctx.RouteData.Values["controller"].ToString();
 
-                var permission = $"{resource}:{intention}";
+                var permission = $"{resource}:{intention}".ToLowerInvariant();
 
                 if (
                     ctx.HttpContext.User.IsInRole(permission) ||
@@ -37,7 +37,7 @@ namespace resource_permissions.Infrastructure.Authorization
         private static readonly IDictionary<string,string> Intentions =
             new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
-                { "get", "Read"},
+                { "get", "read"},
                 { "post", "write"},
                 { "put", "write"},
                 { "delete", "delete"},

@@ -64,9 +64,9 @@ namespace resource_permissions
                 var user = new ClaimsPrincipal(
                     new ClaimsIdentity (
                         new [] {
-                            new Claim("permission", "Heroes:Read"),
-                            new Claim("permission", "Heroes:Write"),
-                            new Claim("permission", "Villians:Read")
+                            new Claim("permission", "heroes:read"),
+                            new Claim("permission", "heroes:write"),
+                            new Claim("permission", "villians:read")
                         }
                     )
                 );
